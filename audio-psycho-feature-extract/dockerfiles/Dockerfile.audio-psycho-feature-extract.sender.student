@@ -1,0 +1,16 @@
+FROM labtainers/labtainer.base2:latest
+ARG lab
+ARG labdir
+ARG imagedir
+ENV HOME /home/ubuntu
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y openssh-server openssh-client sudo && rm -rf /var/lib/apt/lists/*
+RUN useradd -m -s /bin/bash ubuntu || true
+WORKDIR /home/ubuntu
+ADD $labdir/$lab.tar.gz /home/ubuntu
+RUN chown -R ubuntu:ubuntu /home/ubuntu \
+    && mkdir -p /var/run/sshd /home/ubuntu/.ssh /etc/systemd/system/multi-user.target.wants \
+    && find /home/ubuntu/stego -maxdepth 1 -name '*.py' -exec chmod +x {} + \
+    && chmod 700 /home/ubuntu/.ssh \
+    && chmod 600 /home/ubuntu/.ssh/id_ed25519 /home/ubuntu/.ssh/config \
+    && printf 'ubuntu ALL=(ALL) NOPASSWD:/usr/sbin/service ssh *,/bin/systemctl * ssh,/usr/bin/systemctl * ssh\n' > /etc/sudoers.d/ssh-lab \
+    && chmod 440 /etc/sudoers.d/ssh-lab
