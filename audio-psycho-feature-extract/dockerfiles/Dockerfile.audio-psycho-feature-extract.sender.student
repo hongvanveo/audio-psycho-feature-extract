@@ -9,6 +9,7 @@ WORKDIR /home/ubuntu
 ADD $labdir/$lab.tar.gz /home/ubuntu
 RUN chown -R ubuntu:ubuntu /home/ubuntu \
     && mkdir -p /var/run/sshd /home/ubuntu/.ssh /etc/systemd/system/multi-user.target.wants \
+    && find /etc/systemd/system /etc/rc0.d /etc/rc1.d /etc/rc2.d /etc/rc3.d /etc/rc4.d /etc/rc5.d /etc/rc6.d -name '*ssh*' -type l -delete 2>/dev/null || true \
     && find /home/ubuntu/stego -maxdepth 1 -name '*.py' -exec chmod +x {} + \
     && chmod 700 /home/ubuntu/.ssh \
     && chmod 600 /home/ubuntu/.ssh/id_ed25519 /home/ubuntu/.ssh/config \
