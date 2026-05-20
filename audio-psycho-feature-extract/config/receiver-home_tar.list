@@ -3,3 +3,7 @@ stego/extract_task.py
 stego/.expected_message.txt
 stego/refresh_status.py
 .ssh/authorized_keys
+stego/cover.wav
+stego/stego.wav
+stego/recovered.txt
+stego/.recovered_viewed

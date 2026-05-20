@@ -1,0 +1,15 @@
+Lab: audio-psycho-feature-extract
+
+Noi dung:
+- Bat SSH tren sender va receiver.
+- Gui cover.wav va stego.wav tu sender sang receiver.
+- Chinh sua extract_task.py tren receiver.
+- Chay lenh trich xuat de tao recovered.txt.
+- Dung cat recovered.txt de xac nhan noi dung.
+- Chay checkwork de kiem tra ket qua.
+
+Tep can quan tam:
+- ~/stego/cover.wav
+- ~/stego/stego.wav
+- ~/stego/recovered.txt
+- ~/stego/extract_task.py

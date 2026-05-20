@@ -3,7 +3,22 @@ ARG lab
 ARG labdir
 ARG imagedir
 ENV HOME /home/ubuntu
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y openssh-server openssh-client sudo && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    openssh-server \
+    openssh-client \
+    sudo \
+    ffmpeg \
+    sox \
+    vorbis-tools \
+    flac \
+    mpg123 \
+    libsndfile1 \
+    sndfile-programs \
+    python3-numpy \
+    python3-scipy \
+    python3-matplotlib \
+    python3-soundfile \
+    && rm -rf /var/lib/apt/lists/*
 RUN useradd -m -s /bin/bash ubuntu || true
 WORKDIR /home/ubuntu
 ADD $labdir/$lab.tar.gz /home/ubuntu

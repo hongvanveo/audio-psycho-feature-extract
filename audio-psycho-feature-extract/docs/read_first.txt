@@ -1,0 +1,5 @@
+Tai lieu huong dan bai lab o:
+   file://LAB_DOCS/audio-psycho-feature-extract-guide.txt
+
+Ban co the mo file nay bang cach nhap chuot phai
+va chon "Open Link".
