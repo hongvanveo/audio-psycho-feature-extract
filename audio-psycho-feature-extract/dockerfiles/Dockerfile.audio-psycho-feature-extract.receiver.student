@@ -1,5 +1,5 @@
 FROM labtainers/labtainer.base2:latest
-LABEL version="1" base="labtainers/labtainer.base2"
+LABEL version="1" base="labtainers/labtainer.base2.739eee77f8d3"
 USER root
 ARG lab
 ARG labdir
