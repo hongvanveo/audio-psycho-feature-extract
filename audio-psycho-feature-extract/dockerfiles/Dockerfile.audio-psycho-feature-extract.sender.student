@@ -1,4 +1,6 @@
 FROM labtainers/labtainer.base2:latest
+LABEL version="1" base="labtainers/labtainer.base2"
+USER root
 ARG lab
 ARG labdir
 ARG imagedir
